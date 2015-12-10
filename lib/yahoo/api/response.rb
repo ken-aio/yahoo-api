@@ -29,6 +29,11 @@ module Yahoo
       end
     end
 
+    def clear_cache
+      @response = nil
+      @body = nil
+    end
+
   end
 
 end
