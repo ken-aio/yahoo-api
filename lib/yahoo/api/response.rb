@@ -6,7 +6,7 @@ module Yahoo
       @response =response
       body = @response.body
       if format == "json"
-        body = body[9..(body.rindex(")")-1)] if body.include?("callback(")
+        body = body[(body.index("(")+1)..(body.rindex(")")-1)] if body.include?("callback(")
         @body = JSON.parse(body)
       else
         @body = Hash.from_xml(body)
